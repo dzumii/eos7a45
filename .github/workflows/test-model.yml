@@ -132,7 +132,7 @@ jobs:
           # Zip logs folders and move to artifacts
           zip -r /home/runner/artifacts/logs_folders.zip /home/runner/eos/sessions/session_*/logs/tmp/ersilia-*
 
-      - name: Upload artifacts
+      - name: Upload artifactss
         if: always()
         uses: actions/upload-artifact@v3
         with:
