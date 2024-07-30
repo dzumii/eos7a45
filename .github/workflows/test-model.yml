@@ -121,7 +121,12 @@ jobs:
         run: |
           # copy contents of _logs folders and move to artifacts directory
           #cp /home/runner/eos/sessions/session_*/_logs/tmp/ersilia-* /home/runner/artifacts/
+          ls /home/runner/eos
+          ls /home/runner/eos/sessions
+          ls /home/runner/eos/sessions/session_*
+          ls -la /home/runner/eos/sessions/session_*/_logs
           ls /home/runner/eos/sessions/session_*/_logs/tmp
+          
            
 
       - name: Zip contents of logs folders
