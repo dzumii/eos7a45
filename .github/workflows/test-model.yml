@@ -114,7 +114,8 @@ jobs:
         run: |
           mkdir -p /home/runner/artifacts
           cp /home/runner/eos/sessions/session_*/*.log /home/runner/artifacts/
-          cp /home/runner/eos/sessions/session_*/_logs/tmp/* /home/runner/artifacts/
+          cp /home/runner/eos/sessions/session_*/_logs/* /home/runner/artifacts/
+          zip -r /home/runner/artifacts/logs_folders.zip /home/runner/eos/sessions/session_*/logs/*
           zip -r /home/runner/artifacts/logs_folders.zip /home/runner/eos/sessions/session_*/logs/tmp/*
 
       # - name: Copy log files
