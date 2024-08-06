@@ -114,35 +114,12 @@ jobs:
         run: |
           mkdir -p /home/runner/artifacts
           cp /home/runner/eos/sessions/session_*/*.log /home/runner/artifacts/
-          cp -rL /home/runner/eos/sessions/session_*/_logs/** /home/runner/artifacts/
-          cp -rL /home/runner/eos/sessions/session_*/_logs/tmp /home/runner/artifacts/
+          cp /home/runner/eos/sessions/session_*/_logs/** /home/runner/artifacts/
+          cp /home/runner/eos/sessions/session_*/_logs/tmp /home/runner/artifacts/
           zip -r /home/runner/artifacts/logs_folders.zip /home/runner/eos/sessions/session_*/logs/**
          
 
-      # - name: Copy log files
-      #   if: always()
-      #   run: |
-      #     cp /home/runner/eos/sessions/session_*/*.log /home/runner/artifacts/
-
-      # - name: copy contents of _logs folders
-      #   if: always()
-      #   run: |
-      #     # copy contents of _logs folders and move to artifacts directory
-      #     #cp /home/runner/eos/sessions/session_*/_logs/tmp/ersilia-* /home/runner/artifacts/
-      #     ls /home/runner/eos
-      #     ls /home/runner/eos/sessions
-      #     ls /home/runner/eos/sessions/session_*
-      #     ls -la /home/runner/eos/sessions/session_*/_logs
-      #     ls /home/runner/eos/sessions/session_*/_logs/tmp
-          
-           
-
-      # - name: Zip contents of logs folders
-      #   if: always()
-      #   run: |
-      #     # Zip logs folders and move to artifacts
-      #     zip -r /home/runner/artifacts/logs_folders.zip /home/runner/eos/sessions/session_*/logs/tmp/ersilia-*
-
+      
       - name: Upload artifacts
         if: always()
         uses: actions/upload-artifact@83fd05a356d7e2593de66fc9913b3002723633cb #pin v3.1.1
